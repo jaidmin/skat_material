@@ -1,6 +1,8 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import 'flexboxgrid';
+import UsersTable from '../containers/user_table';
+import AddAbend from '../containers/add_abend';
 
 styles={
 	raisedButtons: {
@@ -18,6 +20,8 @@ export const Index = () => (
 	    	<RaisedButton style={styles.raisedButtons} label="Original Base Documentation" href="https://themeteorchef.com/base" />
 	    	<p style={ { fontSize: '14px', color: '#aaa', marginTop: "20px" } }>forked from themeteorchef <a href="https://themeteorchef.com/base">base</a> at v4.5.0</p>
 		</div>
+      <UsersTable/>
+      <AddAbend/>
   	</div>
 );
 

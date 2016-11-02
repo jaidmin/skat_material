@@ -7,11 +7,12 @@ import {Card, CardActions, CardTitle} from 'material-ui/Card';
 import Formsy from 'formsy-react';
 import { FormsyCheckbox, FormsyDate, FormsyRadio, FormsyRadioGroup,
     FormsySelect, FormsyText, FormsyTime, FormsyToggle } from 'formsy-material-ui/lib';
+import {Row, Col} from 'react-bootstrap';
 
 
   const styles = {
     cardStyles: {
-      "width": "40%",
+      "width": "100%",
       "margin": "auto",
       "marginTop": "40px",
       "padding": "20px",
@@ -46,8 +47,9 @@ export class Signup extends React.Component {
     let lastName =  data.lastName;
     let emailAddress = data.emailAddress;
     let password = data.password;
-    
-    handleSignup(firstName, lastName, emailAddress, password );
+    let status = data.status;
+
+    handleSignup(firstName, lastName, emailAddress, password , status);
 
   }
 
@@ -60,36 +62,42 @@ export class Signup extends React.Component {
   }
 
   render() {
-    return (
+    return (<Row>
+      <Col xs={12} md={6} mdOffset={3}>
       <Card style={styles.cardStyles} >
       <CardTitle title="Login" />
         <Formsy.Form onSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton}>
-          <FormsyText 
+          <FormsyText
             name="firstName"
             floatingLabelText="First Name"
-            style={styles.textField}  
-            required 
+            style={styles.textField}
+            required
           />
-          <FormsyText 
+          <FormsyText
             name="lastName"
-            floatingLabelText="Last Name" 
-            style={styles.textField}   
-            required 
+            floatingLabelText="Last Name"
+            style={styles.textField}
+            required
           />
-          <FormsyText 
-            floatingLabelText="Email" 
-            style={styles.textField}  
-            name="emailAddress" 
-            validations="isEmail" 
-            validationError="This is not a valid email" 
-            required 
+          <FormsyText
+            name="status"
+            floatingLabelText="Status"
+            style={styles.textField}
           />
-          <FormsyText 
-            floatingLabelText="Password" 
-            style={styles.textField}  
-            name="password" 
-            type="password" 
-            required 
+          <FormsyText
+            floatingLabelText="Email"
+            style={styles.textField}
+            name="emailAddress"
+            validations="isEmail"
+            validationError="This is not a valid email"
+            required
+          />
+          <FormsyText
+            floatingLabelText="Password"
+            style={styles.textField}
+            name="password"
+            type="password"
+            required
           />
           <CardActions style={styles.cardActionStyles}>
             <RaisedButton type="submit" secondary={true} label="Sign Up" disabled={!this.state.canSubmit} />
@@ -97,6 +105,8 @@ export class Signup extends React.Component {
           </CardActions>
         </Formsy.Form>
       </Card>
+        </Col>
+      </Row>
     );
   }
 }

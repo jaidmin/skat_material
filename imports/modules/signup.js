@@ -17,7 +17,7 @@ const signUp = (user) => {
 };
 
 
-export const handleSignup = (firstName, lastName, emailAddress, password) => {
+export const handleSignup = (firstName, lastName, emailAddress, password,status) => {
   let user = {
         email: emailAddress,
         password: password,
@@ -26,8 +26,10 @@ export const handleSignup = (firstName, lastName, emailAddress, password) => {
             first: firstName,
             last: lastName,
           },
+          status: status,
+          gewonnene_abende: 0
         },
   };
-    
+
     signUp(user);
 };
