@@ -1,10 +1,37 @@
 import React from 'react';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 import {Card, CardActions, CardTitle} from 'material-ui/Card';
+import {Row, Col} from 'react-bootstrap';
+
+
+const styles = {
+
+  cardStyles: {
+    "width": "100%",
+    "margin": "auto",
+    "marginTop": "40px",
+    "padding": "20px",
+    textAlign: "center",
+  },
+  textField: {
+    display: "block",
+    width: "70%",
+    margin: "auto",
+    background: "#ffffff",
+    backgroundColor: "#ffffff",
+    marginBottom: "20px",
+  },
+  cardActionStyles: {
+    margin: "auto"
+  }
+};
+
 
 export const UsersTable = ({users}) => (
+  <Row>
+    <Col xs={12} md={8} mdOffset={2}>
+<Card style={styles.cardStyles}>
 
-<Card>
   <CardTitle><h2>Spieler Übersicht</h2></CardTitle>
     <Table>
       <TableHeader>
@@ -31,4 +58,6 @@ export const UsersTable = ({users}) => (
       </TableBody>
     </Table>
 </Card>
+      </Col>
+    </Row>
 ); UsersTable.propTypes = {users : React.PropTypes.array}

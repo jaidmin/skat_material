@@ -5,7 +5,7 @@
 
 import React from 'react';
 import { Link } from 'react-router';
-//import { handleSignup } from '../../modules/signup';
+import { handleAbend } from '../../modules/abend';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import {Card, CardActions, CardTitle} from 'material-ui/Card';
@@ -35,7 +35,7 @@ const styles = {
   cardActionStyles: {
     margin: "auto"
   }
-}
+};
 
 
 export class AddAbend extends React.Component {
@@ -52,9 +52,22 @@ export class AddAbend extends React.Component {
     let spieler_1 = data.spieler_1;
     let spieler_2 = data.spieler_2;
     let spieler_3 = data.spieler_3;
+    let optionen = {
+      "schneider-mit-30": data.schneider_mit_30,
+      "kontra-und-reh-erlauben": data.kontra_und_reh_erlauben,
+      "bock_ramsch": {
+        "schneider_verloren":data.bock_ramsch_scheider_verloren,
+        "schneider_gewonnen":data.bock_ramsch_scheider_gewonnen,
+        "kontra_verloren": data.bock_ramsch_kontra_verloren,
+        "kontra_gewonnen": data.bock_ramsch_kontra_gewonnen,
+        "spaltarsch": data.bock_ramsch_spaltarsch,
+      },
+
+      "kontra_nur_nach_reizen": data.kontra_nur_nach_reizen,
+    };
 
 
-    handleAbend(spieler_1,spieler_2,spieler_3);
+    handleAbend(spieler_1,spieler_2,spieler_3,optionen);
 
   }
 
@@ -114,46 +127,46 @@ export class AddAbend extends React.Component {
                 <Col xs={12} md={4}>
 
                 <FormsyToggle
-              name="schneider-mit-30"
+              name="schneider_mit_30"
               label="Schneider mit 30"
 
               />
                   <FormsyToggle
-                    name="k-r-e"
+                    name="kontra_und_reh_erlauben"
                     label="Kontra und Re erlauben"
 
                   />
 
                 <CardTitle subtitle="Bock-Ramsch"/>
                   <FormsyToggle
-                    name="b-r-s-v"
+                    name="bock_ramsch_schneider_verloren"
                     label="Bei Schneider verloren"
                     className="text-left"
                     />
                   <FormsyToggle
-                    name="b-r-s-g"
+                    name="bock_ramsch_schneider_gewonnen"
                     label="Bei Schneider gewonnen"
 
                   />
                   <FormsyToggle
-                    name="b-r-k-g"
+                    name="bock_ramsch_kontra_gewonnen"
                     label="Bei Kontra gewonnen"
 
                   />
                   <FormsyToggle
-                    name="b-r-k-v"
+                    name="bock_ramsch_kontra_verloren"
                     label="Bei Kontra verloren"
 
                   />
                   <FormsyToggle
-                    name="b-r-s-a"
+                    name="bock_ramsch_spaltarsch"
                     label="Bei Spaltarsch"
 
                   />
               </Col>
-                <Col xs={12} md={4}>0
+                <Col xs={12} md={4}>
                   <FormsyToggle
-                    name="k-"
+                    name="kontra_nur_nach_reizen"
                     label="Kontra nur nach Reizen"
 
                   />
