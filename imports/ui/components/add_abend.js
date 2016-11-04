@@ -170,6 +170,53 @@ export class AddAbend extends React.Component {
                     label="Kontra nur nach Reizen"
 
                   />
+
+
+                  <FormsySelect
+                    name="grand_wert"
+                    required
+                    floatingLabelText="Grand mit"
+                    menuItems={this.selectFieldItems}
+                  >
+
+
+                      <MenuItem value={"18"} primaryText={"18"} />
+                    <MenuItem value={"20"} primaryText={"20"} />
+                    <MenuItem value={"22"} primaryText={"22"} />
+                    <MenuItem value={"24"} primaryText={"24"} />
+
+
+
+                  </FormsySelect>
+                  <FormsyToggle
+                    name="ramsch_wenn_alle_passen"
+                    label="Ramsch wenn alle passen"
+
+                  />
+                  <FormsyToggle
+                    name="grand_hand_bei_ramsch"
+                    label="Grand Hand bei Ramsch"
+
+                  />
+
+                  <FormsySelect
+                    name="Abrechnungssystem"
+                    required
+                    floatingLabelText="Abrechnungssystem"
+                    menuItems={this.selectFieldItems}
+                  >
+
+
+                    <MenuItem value={"klassisch"} primaryText={"Klassisch"} />
+                    <MenuItem value={"bierlachs"} primaryText={"Bierlachs"} />
+                    <MenuItem value={"seger_fabian"} primaryText={"Seger_Fabian"} />
+
+
+
+                  </FormsySelect>
+
+
+
                   </Col>
               </Row>
                 <CardActions style={styles.cardActionStyles}>
