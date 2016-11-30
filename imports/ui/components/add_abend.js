@@ -49,9 +49,12 @@ export class AddAbend extends React.Component {
   }
 
   submit(data) {
-    let spieler_1 = data.spieler_1;
-    let spieler_2 = data.spieler_2;
-    let spieler_3 = data.spieler_3;
+    let spieler = {
+      "spieler_1" : data.spieler_1,
+    "spieler_2" : data.spieler_2,
+    "spieler_3" : data.spieler_3,
+    } ;
+
     let optionen = {
       "schneider-mit-30": data.schneider_mit_30,
       "kontra-und-reh-erlauben": data.kontra_und_reh_erlauben,
@@ -65,10 +68,16 @@ export class AddAbend extends React.Component {
       },
 
       "kontra_nur_nach_reizen": data.kontra_nur_nach_reizen,
+      "grand_wert": data.grand_wert,
+      "ramsch_wenn_alle_passen": data.ramsch_wenn_alle_passen,
+      "grand_hand_bei_ramsch":data.grand_hand_bei_ramsch,
+      //"abrechnungssystem" : data.abrechnungssystem,
+
+
     };
 
 
-    handleAbend(spieler_1,spieler_2,spieler_3,optionen);
+    handleAbend(spieler,optionen);
 
   }
 
@@ -171,6 +180,53 @@ export class AddAbend extends React.Component {
                     label="Kontra nur nach Reizen"
 
                   />
+
+
+                  <FormsySelect
+                    name="grand_wert"
+                    required
+                    floatingLabelText="Grand mit"
+                    menuItems={this.selectFieldItems}
+                  >
+
+
+                      <MenuItem value={"18"} primaryText={"18"} />
+                    <MenuItem value={"20"} primaryText={"20"} />
+                    <MenuItem value={"22"} primaryText={"22"} />
+                    <MenuItem value={"24"} primaryText={"24"} />
+
+
+
+                  </FormsySelect>
+                  <FormsyToggle
+                    name="ramsch_wenn_alle_passen"
+                    label="Ramsch wenn alle passen"
+
+                  />
+                  <FormsyToggle
+                    name="grand_hand_bei_ramsch"
+                    label="Grand Hand bei Ramsch"
+
+                  />
+
+                  <FormsySelect
+                    name="abrechnungssystem"
+                    required
+                    floatingLabelText="Abrechnungssystem"
+                    menuItems={this.selectFieldItems}
+                  >
+
+
+                    <MenuItem value={"klassisch"} primaryText={"Klassisch"} />
+                    <MenuItem value={"bierlachs"} primaryText={"Bierlachs"} />
+                    <MenuItem value={"seger_fabian"} primaryText={"Seger_Fabian"} />
+
+
+
+                  </FormsySelect>
+
+
+
                   </Col>
               </Row>
                 <CardActions style={styles.cardActionStyles}>
