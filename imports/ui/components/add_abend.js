@@ -55,9 +55,10 @@ export class AddAbend extends React.Component {
     let optionen = {
       "schneider-mit-30": data.schneider_mit_30,
       "kontra-und-reh-erlauben": data.kontra_und_reh_erlauben,
+
       "bock_ramsch": {
-        "schneider_verloren":data.bock_ramsch_scheider_verloren,
-        "schneider_gewonnen":data.bock_ramsch_scheider_gewonnen,
+        "schneider_verloren":data.bock_ramsch_schneider_verloren,
+        "schneider_gewonnen":data.bock_ramsch_schneider_gewonnen,
         "kontra_verloren": data.bock_ramsch_kontra_verloren,
         "kontra_gewonnen": data.bock_ramsch_kontra_gewonnen,
         "spaltarsch": data.bock_ramsch_spaltarsch,

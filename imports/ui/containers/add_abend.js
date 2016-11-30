@@ -9,6 +9,9 @@ import {AddAbend} from '../components/add_abend';
 import {Loading} from '../components/loading.js';
 import {Meteor} from 'meteor/meteor';
 
+Meteor.subscribe("Abende");
+
+
 const composer = (params, onData) => {
   const subscription = Meteor.subscribe('userData');
   if (subscription.ready()) {

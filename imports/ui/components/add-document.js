@@ -56,7 +56,7 @@ export class AddDocument extends React.Component {
     this.state = {
       open: false,
       canSubmit: false,
-    };      
+    };
   }
 
   handleOpen() {
@@ -72,14 +72,14 @@ export class AddDocument extends React.Component {
   }
 
   submit(data, resetForm) {
-      
+
       let title = data.document.trim();
 
       const closeModal = () => {
         this.setState({ open: false, canSubmit: false });
       };
 
-      insertDocument.call({title}, (error) => {   
+      insertDocument.call({title}, (error) => {
           if (error) { Bert.alert(error.reason, 'danger'); return; }
           //else
           Bert.alert('Document added!', 'success');
@@ -100,16 +100,16 @@ render() {
         <FloatingActionButton style={styles.floatingButton} secondary={true} onTouchTap={this.handleOpen}>
           <ContentAdd />
         </FloatingActionButton>
-        <Dialog modal={false} open={this.state.open} onRequestClose={this.handleClose} title="Add Document" modal={true}>
+        <Dialog open={this.state.open} onRequestClose={this.handleClose} title="Add Document" modal={true}>
           <Formsy.Form onSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton} ref="form">
-            <FormsyText 
+            <FormsyText
                 floatingLabelText="Document"
                 style={styles.fieldStyle}
-                name="document" 
-                required 
+                name="document"
+                required
             />
             <RaisedButton style={styles.buttonStyles} type="submit" secondary={true} label="Add Document" disabled={!this.state.canSubmit} />
-            <RaisedButton style={styles.buttonStyles} label="Cancel" onTouchTap={this.handleClose} />  
+            <RaisedButton style={styles.buttonStyles} label="Cancel" onTouchTap={this.handleClose} />
         </Formsy.Form>
         </Dialog>
       </div>
